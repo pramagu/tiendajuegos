@@ -5,8 +5,17 @@ const cors = require('cors');
 
 const app = express();
 
+const corsOptions = {
+       origin: '*',
+    credentials: true,
+    optionSuccessStatus:200,
+}
+
+
 app.use(express.static('public'));
 app.use(express.json());
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000
 const DB_URI = process.env.DB_URI || "mongodb+srv://usuario:usuario@cluster0.qskntlb.mongodb.net/?retryWrites=true&w=majority"
